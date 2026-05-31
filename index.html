@@ -1,0 +1,296 @@
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Профессиональный текстовый блок</title>
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: rgba(255, 255, 255, 0.08);
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-2: #a78bfa;
+      --border: rgba(255, 255, 255, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.22), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(167, 139, 250, 0.25), transparent 35%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .hero-label {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--accent);
+      background: rgba(255, 255, 255, 0.06);
+      font-size: 14px;
+      letter-spacing: 0.04em;
+    }
+
+    h1 {
+      font-size: clamp(38px, 7vw, 78px);
+      line-height: 1.05;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, #38bdf8, #a78bfa, #f472b6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      opacity: 0.95;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .section {
+      margin-bottom: 48px;
+    }
+
+    .section-title {
+      font-size: 28px;
+      margin-bottom: 22px;
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .section-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 5px;
+      height: 28px;
+      border-radius: 8px;
+      background: linear-gradient(180deg, var(--accent), var(--accent-2));
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .skill-card,
+    .case-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 26px;
+      backdrop-filter: blur(18px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22);
+    }
+
+    .skill-card {
+      transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(56, 189, 248, 0.7);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .skill-card h3 {
+      margin-bottom: 12px;
+      font-size: 21px;
+      color: #fff;
+    }
+
+    .skill-card p,
+    .case-card p {
+      color: var(--muted);
+    }
+
+    .cases {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .case-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .case-card::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+
+    .case-tag {
+      display: inline-block;
+      margin-bottom: 14px;
+      color: #0f172a;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .tool {
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 15px;
+      transition: 0.25s ease;
+    }
+
+    .tool:hover {
+      background: rgba(56, 189, 248, 0.14);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .highlight {
+      margin-top: 44px;
+      padding: 30px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.18), rgba(167, 139, 250, 0.18));
+      border: 1px solid var(--border);
+    }
+
+    .highlight strong {
+      color: #fff;
+    }
+
+    @media (max-width: 900px) {
+      .skills,
+      .cases {
+        grid-template-columns: 1fr;
+      }
+
+      body {
+        padding: 28px 16px;
+      }
+
+      .hero {
+        text-align: left;
+      }
+
+      .hero p {
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+
+    <section class="hero">
+      <span class="hero-label">Профессиональная презентация</span>
+      <h1>Биггис  Сайт </h1>
+      <p>
+       Вся ценность этого сайта в познании кода
+      
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Быстрее Выше Сильнее Тише Скромнее </h2>
+
+      <div class="skills">
+        <div class="skill-card">
+          <h3>Стратегия</h3>
+          <p>Ты тот кто у тебя есть.</p>
+        </div>
+
+        <div class="skill-card">
+          <h3>Дизайн</h3>
+          <p>Визуально свежий , подход уверенный .</p>
+        </div>
+
+        <div class="skill-card">
+          <h3>Польза </h3>
+          <p>Понимание кода </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Кейс черный деловой  школьный </h2>
+
+      <div class="cases">
+        <div class="case-card">
+          <span class="case-tag">Кейс 01</span>
+          <h3></h3>
+          <p>
+           Мы подошли из за угла ,ты много на себя взяла ,теперь расплачиваться поздно ,посмотри на эти звезды ,посмотри на этор небо ты видишь это все в последний раз
+          </p>
+        </div>
+
+        <div class="case-card">
+          <span class="case-tag">Кейс 02</span>
+          <h3>Название проекта</h3>
+          <p>
+           заходите к нам на огонек пела скрика ласково и так нежно
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Инструменты</h2>
+
+      <div class="tools">
+        <span class="tool">Figma</span>
+        <span class="tool">HTML</span>
+        <span class="tool">CSS</span>
+        <span class="tool">UX/UI</span>
+        <span class="tool">Branding</span>
+        <span class="tool">Web Design</span>
+        <span class="tool">Адаптивность</span>
+      </div>
+    </section>
+
+    <div class="highlight">
+      <p>
+        <strong>Акцентный вывод:</strong> Трудно но достижимо ,весело ,всем мороженое и газировку
+      </p>
+    </div>
+
+  </main>
+</body>
+</html>
